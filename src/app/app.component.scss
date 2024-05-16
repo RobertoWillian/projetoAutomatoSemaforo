@@ -1,0 +1,44 @@
+.semaforo {
+  display: flex;
+  padding: 1rem;
+
+  .body {
+    background-color: var(--cor4);
+    display: flex;
+    gap: 2rem;
+    padding: .5rem;
+    border-radius: 1rem;
+
+    .bol {
+      height: 5rem;
+      width: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background-color: var(--cor1);
+      opacity: .5;
+      overflow: hidden;
+
+      .color {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .green {
+      background-color: #0A6847;
+    }
+
+    .orange {
+      background-color: #FF5F00;
+    }
+
+    .red {
+      background-color: #C40C0C;
+    }
+  }
+}
