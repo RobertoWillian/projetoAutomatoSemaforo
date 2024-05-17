@@ -1,8 +1,21 @@
 <section class="h-screen w-full flex flex-column align-items-center">
   <h1 class="text-3xl">Semaforo Inteligente</h1>
+  <section>
+    <button [style.background]="init ? 'red' : 'green'" class="cursor-pointer btn"
+      (click)="init = !init; initSemaforo()">
+      <i class="bi" [ngClass]="getIcon()"></i>
+    </button>
+  </section>
   <section class="semaforo">
     <section class="body">
+      @for (cor of colors; track $index) {
       <section class="bol">
+        <section [ngClass]="getColorClasses(cor)" class="color">
+
+        </section>
+      </section>
+      }
+      <!-- <section class="bol">
         @if (color['red']) {
         <section class="color red">
 
@@ -22,7 +35,7 @@
 
         </section>
         }
-      </section>
+      </section> -->
     </section>
   </section>
 </section>
