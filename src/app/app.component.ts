@@ -12,26 +12,37 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'semaforo-app';
   init = false;
+  intervalId: any; // Armazenar a referência do intervalo
 
   colors = [
     { color: 'red', active: false },
     { color: 'orange', active: false },
-    { color: 'green', active: false },
-  ]
-  ngOnInit(): void {
+    { color: 'green', active: false }
+  ];
 
-  }
+  cars = [
+    { moving: false },
+    { moving: false }
+  ];
+
+  ngOnInit(): void { }
+
   initSemaforo() {
-    if (this.init) {
-      this.cicloSemaforo(); // Inicia o ciclo imediatamente
-      setInterval(() => {
-        this.cicloSemaforo();
-      }, 5000); // Ciclo a cada 3 segundos
-    } else {
-      this.colors.forEach(cor => {
-        cor.active = false;
-      });
-    }
+    this.init = true;
+    this.cicloSemaforo(); // Inicia o ciclo imediatamente
+    this.intervalId = setInterval(() => {
+      this.cicloSemaforo();
+    }, 5000); // Ciclo a cada 5 segundos
+  }
+
+  stop() {
+    console.log("stop");
+    this.init = false;
+    clearInterval(this.intervalId); // Limpa o intervalo
+    this.colors.forEach(cor => {
+      cor.active = false;
+    });
+    this.cars.forEach(car => car.moving = false); // Parar os carros
   }
 
   cicloSemaforo() {
@@ -45,6 +56,7 @@ export class AppComponent implements OnInit {
     } else if (this.colors[activeIndex].color === 'orange') {
       this.active(0); // Volta para o vermelho
     }
+    this.updateCarsStatus();
   }
 
   active(index: number) {
@@ -53,12 +65,23 @@ export class AppComponent implements OnInit {
     });
     console.log(this.colors);
   }
+
+  updateCarsStatus() {
+    const activeIndex = this.colors.findIndex(cor => cor.active);
+    if (this.colors[activeIndex].color === 'green') {
+      this.cars.forEach(car => car.moving = true);
+    } else {
+      this.cars.forEach(car => car.moving = false);
+    }
+  }
+
   getColorClasses(cor: { color: string, active: boolean }) {
     return {
       'active': cor.active,
       [cor.color]: true
     };
   }
+
   getIcon(): string {
     return this.init ? 'bi-stop-fill' : 'bi-play-fill';
   }

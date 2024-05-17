@@ -1,60 +1,213 @@
-button.btn {
-  border: none;
-  padding: 0 1rem;
-  border-radius: .25rem;
-  color: whitesmoke;
+// button.btn {
+//   border: none;
+//   padding: 0 1rem;
+//   border-radius: .25rem;
+//   color: whitesmoke;
 
-  i {
-    font-size: 1.5rem;
-  }
-}
+//   i {
+//     font-size: 1.5rem;
+//   }
+// }
 
-.semaforo {
+// .semaforo {
+//   display: flex;
+//   padding: 1rem;
+
+//   .body {
+//     background-color: var(--cor4);
+//     display: flex;
+//     gap: 2rem;
+//     padding: .5rem;
+//     border-radius: 1rem;
+
+//     .bol {
+//       height: 5rem;
+//       width: 5rem;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       border-radius: 50%;
+//       background-color: var(--cor1);
+//       opacity: .5;
+//       overflow: hidden;
+
+//       .color {
+//         height: 100%;
+//         width: 100%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         opacity: 0.3;
+//       }
+
+//       .active {
+//         opacity: 1;
+//       }
+//     }
+
+//     .green {
+//       background-color: #0A6847;
+//     }
+
+//     .orange {
+//       background-color: #FF5F00;
+//     }
+
+//     .red {
+//       background-color: #E72929;
+//     }
+//   }
+// }
+
+// .cars {
+//   .road {
+//     width: 100%;
+//     height: 100%;
+//     background-color: #ccc;
+//     position: relative;
+//     overflow: hidden;
+//     display: flex;
+//     gap: 1rem;
+//   }
+
+//   .car {
+//     width: 50px;
+//     height: 30px;
+//     background-color: blue;
+//     // position: absolute;
+//     // top: 35px;
+//     // left: -60px;
+//     /* Começa fora da tela */
+//     // transition: left 3s linear;
+//     /* Animação de movimento */
+//   }
+
+//   .car.moving {
+//     left: 100%;
+//     /* Move até o final da tela */
+//   }
+
+//   .car.stopped {
+//     left: 50px;
+//     /* Parado no semáforo */
+//   }
+// }
+.content {
+  height: 100%;
   display: flex;
-  padding: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
 
-  .body {
-    background-color: var(--cor4);
+  .semaforo {
+    height: 40dvh;
     display: flex;
-    gap: 2rem;
-    padding: .5rem;
-    border-radius: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
 
-    .bol {
-      height: 5rem;
-      width: 5rem;
+    .form {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .btn {
+        padding: 0 1rem;
+        color: whitesmoke;
+        border: none;
+        border-radius: 5px;
+
+        i {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .bols {
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 50%;
-      background-color: var(--cor1);
-      opacity: .5;
-      overflow: hidden;
+      padding: 2rem 0rem;
+      height: 50%;
 
-      .color {
-        height: 100%;
-        width: 100%;
+      .body {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0.3;
+        justify-content: space-between;
       }
 
-      .active {
-        opacity: 1;
+      .bol {
+        height: 8rem;
+        width: 8rem;
+        border-radius: 50%;
+        overflow: hidden;
+
+        .color {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0.1;
+        }
+
+        .active {
+          opacity: 1;
+        }
       }
-    }
-
-    .green {
-      background-color: #0A6847;
-    }
-
-    .orange {
-      background-color: #FF5F00;
-    }
-
-    .red {
-      background-color: #E72929;
     }
   }
+
+  .cars {
+    height: 60dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .faixa {
+      height: 15dvh;
+      padding: .5rem;
+      gap: 1rem;
+      border-top: 1px solid whitesmoke;
+      border-left: 1px solid whitesmoke;
+      border-right: 1px solid whitesmoke;
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+
+      .blocos {
+        height: 100%;
+        width: calc(50% / 10);
+        border-radius: 1px;
+        background-color: white;
+      }
+    }
+
+
+    .veiculos {
+      border-left: 1px solid whitesmoke;
+      border-right: 1px solid whitesmoke;
+      height: 100%;
+      width: 50%;
+      padding: 1rem .5rem 0rem .5rem;
+
+      .uni {
+        padding: .75rem;
+        width: 100%;
+        border-radius: 1px;
+        background-color: whitesmoke;
+      }
+    }
+  }
+}
+
+
+.green {
+  background-color: var(--green)
+}
+
+.orange {
+  background-color: var(--orange);
+}
+
+.red {
+  background-color: var(--red);
 }

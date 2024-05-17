@@ -7,9 +7,14 @@
   --cor2: #EAD8C0;
   --cor3: #D1BB9E;
   --cor4: #A79277;
+  --green: #0A6847;
+  --orange: #FF5F00;
+  --red: #E72929;
+  --black: #080202;
 }
 
 body {
-  background-color: var(--cor1);
+  background-color: var(--black);
   font-family: "Inter", sans-serif;
+  margin: 0;
 }
