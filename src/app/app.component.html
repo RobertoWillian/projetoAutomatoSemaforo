@@ -1,38 +1,12 @@
-<!-- <section class="h-full w-full flex flex-column align-items-center">
-  <h1 class="text-3xl">Semaforo Inteligente</h1>
-  <section>
-    <button [style.background]="init ? 'red' : 'green'" class="cursor-pointer btn"
-      (click)="init = !init; initSemaforo()">
-      <i class="bi" [ngClass]="getIcon()"></i>
-    </button>
-  </section>
-  <section class="semaforo">
-    <section class="body">
-      @for (cor of colors; track $index) {
-      <section class="bol">
-        <section [ngClass]="getColorClasses(cor)" class="color">
-
-        </section>
-      </section>
-      }
-    </section>
-  </section>
-  <section class="cars w-full flex justify-content-center">
-    <div class="road">
-      @for (car of cars; track $index) {
-      <div class="car" [ngClass]="{'moving': car.moving, 'stop': !car.moving}">
-        a
-      </div>
-      }
-    </div>
-  </section>
-</section> -->
 <section class="content">
   <section class="semaforo">
     <p class="text-xl m-0 font-bold text-white p-1">Semaforo Inteligente</p>
     <section class="form">
-      <button [ngClass]="init ? 'red' : 'green'" class="cursor-pointer btn"
-        (click)="init ? stop() : initSemaforo()">
+      <p-floatLabel>
+        <p-inputNumber [disabled]="init" inputId="integeronly" [(ngModel)]="value" />
+        <label class="text-white" for="number-input">Tempo(ms) 1000ms = 1s</label>
+      </p-floatLabel>
+      <button [disabled]="!value" [ngClass]="init ? 'red' : 'green'" class="cursor-pointer btn" (click)="init ? stop() : initSemaforo()">
         <i class="bi" [ngClass]="getIcon()"></i>
       </button>
     </section>
@@ -41,24 +15,10 @@
         @for (cor of colors; track $index) {
         <div class="bol">
           <section [ngClass]="getColorClasses(cor)" class="color">
-
           </section>
         </div>
         }
       </section>
     </section>
-  </section>
-  <section class="cars">
-    <div class="faixa">
-      @for (item of [1,2,4,5,6,7,8,9,10]; track $index) {
-      <section class="blocos"> </section>
-      }
-    </div>
-    <div class="veiculos">
-      <section class="uni"></section>
-      <section class="carrinhos">
-
-      </section>
-    </div>
   </section>
 </section>

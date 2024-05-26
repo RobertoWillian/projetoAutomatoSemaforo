@@ -1,18 +1,24 @@
 import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputNumberModule } from 'primeng/inputnumber';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgClass],
+  imports: [
+    RouterOutlet, NgClass, FormsModule,
+    InputNumberModule, FloatLabelModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'semaforo-app';
   init = false;
-  intervalId: any; // Armazenar a referência do intervalo
+  intervalId: any;
+  value: number | undefined;
 
   colors = [
     { color: 'red', active: false },
@@ -21,8 +27,8 @@ export class AppComponent implements OnInit {
   ];
 
   cars = [
-    { moving: false },
-    { moving: false }
+    { moving: false, slowing: false },
+    { moving: false, slowing: false }
   ];
 
   ngOnInit(): void { }
@@ -32,7 +38,7 @@ export class AppComponent implements OnInit {
     this.cicloSemaforo(); // Inicia o ciclo imediatamente
     this.intervalId = setInterval(() => {
       this.cicloSemaforo();
-    }, 5000); // Ciclo a cada 5 segundos
+    }, this.value); // Ciclo a cada 5 segundos
   }
 
   stop() {
@@ -42,13 +48,16 @@ export class AppComponent implements OnInit {
     this.colors.forEach(cor => {
       cor.active = false;
     });
-    this.cars.forEach(car => car.moving = false); // Parar os carros
+    this.cars.forEach(car => {
+      car.moving = false;
+      car.slowing = false;
+    }); // Parar os carros
   }
 
   cicloSemaforo() {
     const activeIndex = this.colors.findIndex(cor => cor.active);
     if (activeIndex === -1) {
-      this.active(0); // Inicia com o vermelho
+      this.active(2); // Inicia com o verde
     } else if (this.colors[activeIndex].color === 'red') {
       this.active(2); // Vai para o verde
     } else if (this.colors[activeIndex].color === 'green') {
@@ -69,9 +78,20 @@ export class AppComponent implements OnInit {
   updateCarsStatus() {
     const activeIndex = this.colors.findIndex(cor => cor.active);
     if (this.colors[activeIndex].color === 'green') {
-      this.cars.forEach(car => car.moving = true);
+      this.cars.forEach(car => {
+        car.moving = true;
+        car.slowing = false;
+      });
+    } else if (this.colors[activeIndex].color === 'orange') {
+      this.cars.forEach(car => {
+        car.moving = false;
+        car.slowing = true;
+      });
     } else {
-      this.cars.forEach(car => car.moving = false);
+      this.cars.forEach(car => {
+        car.moving = false;
+        car.slowing = false;
+      });
     }
   }
 
