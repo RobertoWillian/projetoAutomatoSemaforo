@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
   }
 
   stop() {
-    console.log("stop");
     this.init = false;
     clearInterval(this.intervalId); // Limpa o intervalo
     this.colors.forEach(cor => {
@@ -72,7 +71,6 @@ export class AppComponent implements OnInit {
     this.colors.forEach((cor, i) => {
       cor.active = i === index;
     });
-    console.log(this.colors);
   }
 
   updateCarsStatus() {
