@@ -1,12 +1,13 @@
 <section class="content">
   <section class="semaforo">
-    <p class="text-xl m-0 font-bold text-white p-1">Semaforo Inteligente</p>
+    <p class="text-xl m-0 font-bold p-1">Semaforo Inteligente</p>
     <section class="form">
       <p-floatLabel>
         <p-inputNumber [disabled]="init" inputId="integeronly" [(ngModel)]="value" />
-        <label class="text-white" for="number-input">Tempo(ms) 1000ms = 1s</label>
+        <label for="number-input">Tempo(ms) 1000ms = 1s</label>
       </p-floatLabel>
-      <button [disabled]="!value" [ngClass]="init ? 'red' : 'green'" class="cursor-pointer btn" (click)="init ? stop() : initSemaforo()">
+      <button [disabled]="!value" [ngClass]="init ? 'red' : 'green'" class="cursor-pointer btn"
+        (click)="init ? stop() : initSemaforo()">
         <i class="bi" [ngClass]="getIcon()"></i>
       </button>
     </section>

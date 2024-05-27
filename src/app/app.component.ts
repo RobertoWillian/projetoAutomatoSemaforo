@@ -35,22 +35,22 @@ export class AppComponent implements OnInit {
 
   initSemaforo() {
     this.init = true;
-    this.cicloSemaforo(); // Inicia o ciclo imediatamente
+    this.cicloSemaforo();
     this.intervalId = setInterval(() => {
       this.cicloSemaforo();
-    }, this.value); // Ciclo a cada 5 segundos
+    }, this.value);
   }
 
   stop() {
     this.init = false;
-    clearInterval(this.intervalId); // Limpa o intervalo
+    clearInterval(this.intervalId);
     this.colors.forEach(cor => {
       cor.active = false;
     });
     this.cars.forEach(car => {
       car.moving = false;
       car.slowing = false;
-    }); // Parar os carros
+    });
   }
 
   cicloSemaforo() {
@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
     } else if (this.colors[activeIndex].color === 'green') {
       this.active(1); // Vai para o laranja
     } else if (this.colors[activeIndex].color === 'orange') {
-      this.active(0); // Volta para o vermelho
+      this.active(0); // vai para o vermelho
     }
     this.updateCarsStatus();
   }

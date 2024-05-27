@@ -4,7 +4,7 @@
 
 :root {
   --cor1: #FFF2E1;
-  --cor2: #EAD8C0;
+  --cor2: #f6f6f6;
   --cor3: #D1BB9E;
   --cor4: #A79277;
   --green: #0A6847;
@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: var(--black);
+  background-color: var(--cor2);
   font-family: "Inter", sans-serif;
   margin: 0;
 }
