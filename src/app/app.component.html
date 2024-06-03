@@ -2,12 +2,10 @@
   <section class="semaforo">
     <p class="text-xl m-0 font-bold p-1">Semaforo</p>
     <section class="form">
-      <p-floatLabel>
-        <p-inputNumber [disabled]="init" inputId="integeronly" [(ngModel)]="value" />
-        <label for="number-input">Tempo(ms) 1000ms = 1s</label>
-      </p-floatLabel>
-      <button [disabled]="!value" [ngClass]="init ? 'red' : 'green'" class="cursor-pointer btn"
-        (click)="init ? stop() : initSemaforo()">
+      <button class="cursor-pointer yellow btn" (click)="requestPass()">
+        <i class="bi bi-person-walking"></i>
+      </button>
+      <button [ngClass]="init ? 'red' : 'green'" class="cursor-pointer btn" (click)="init ? stop() : initSemaforo()">
         <i class="bi" [ngClass]="getIcon()"></i>
       </button>
     </section>
@@ -16,10 +14,11 @@
         @for (cor of colors; track $index) {
         <div class="bol">
           <section [ngClass]="getColorClasses(cor)" class="color">
+            <span class="text-white font-bold text-3xl">{{ getRemainingTime(cor.color) }}</span>
           </section>
         </div>
         }
       </section>
     </section>
   </section>
-</section> 
+</section>
