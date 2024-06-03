@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { FloatLabelModule } from 'primeng/floatlabel';
@@ -14,7 +14,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'semaforo-app';
   init = false;
   intervalId: any;
@@ -22,16 +22,9 @@ export class AppComponent implements OnInit {
 
   colors = [
     { color: 'red', active: false },
-    { color: 'orange', active: false },
+    { color: 'yellow', active: false },
     { color: 'green', active: false }
   ];
-
-  cars = [
-    { moving: false, slowing: false },
-    { moving: false, slowing: false }
-  ];
-
-  ngOnInit(): void { }
 
   initSemaforo() {
     this.init = true;
@@ -47,10 +40,6 @@ export class AppComponent implements OnInit {
     this.colors.forEach(cor => {
       cor.active = false;
     });
-    this.cars.forEach(car => {
-      car.moving = false;
-      car.slowing = false;
-    });
   }
 
   cicloSemaforo() {
@@ -60,37 +49,16 @@ export class AppComponent implements OnInit {
     } else if (this.colors[activeIndex].color === 'red') {
       this.active(2); // Vai para o verde
     } else if (this.colors[activeIndex].color === 'green') {
-      this.active(1); // Vai para o laranja
-    } else if (this.colors[activeIndex].color === 'orange') {
+      this.active(1); // Vai para o amarelo
+    } else if (this.colors[activeIndex].color === 'yellow') {
       this.active(0); // vai para o vermelho
     }
-    this.updateCarsStatus();
   }
 
   active(index: number) {
     this.colors.forEach((cor, i) => {
       cor.active = i === index;
     });
-  }
-
-  updateCarsStatus() {
-    const activeIndex = this.colors.findIndex(cor => cor.active);
-    if (this.colors[activeIndex].color === 'green') {
-      this.cars.forEach(car => {
-        car.moving = true;
-        car.slowing = false;
-      });
-    } else if (this.colors[activeIndex].color === 'orange') {
-      this.cars.forEach(car => {
-        car.moving = false;
-        car.slowing = true;
-      });
-    } else {
-      this.cars.forEach(car => {
-        car.moving = false;
-        car.slowing = false;
-      });
-    }
   }
 
   getColorClasses(cor: { color: string, active: boolean }) {

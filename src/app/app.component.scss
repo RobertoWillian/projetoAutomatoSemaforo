@@ -67,55 +67,6 @@
       }
     }
   }
-
-  .cars {
-    height: 60dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .faixa {
-      height: 15dvh;
-      padding: .5rem;
-      gap: 1rem;
-      border-top: 1px solid whitesmoke;
-      border-left: 1px solid whitesmoke;
-      border-right: 1px solid whitesmoke;
-      width: 50%;
-      display: flex;
-      justify-content: space-between;
-
-      .blocos {
-        height: 100%;
-        width: calc(50% / 10);
-        border-radius: 1px;
-        background-color: white;
-      }
-    }
-
-
-    .veiculos {
-      border-left: 1px solid whitesmoke;
-      border-right: 1px solid whitesmoke;
-      height: 100%;
-      width: 50%;
-      padding: 1rem .5rem 0rem .5rem;
-
-      .uni {
-        height: 1.25rem;
-        width: 100%;
-        border-radius: 1px;
-
-        background-color: red;
-
-      }
-
-      .carrinhos {
-        height: calc(100% - 1rem);
-        // background-color: red;
-      }
-    }
-  }
 }
 
 
@@ -123,56 +74,10 @@
   background-color: var(--green)
 }
 
-.orange {
-  background-color: var(--orange);
+.yellow {
+  background-color: var(--yellow);
 }
 
 .red {
   background-color: var(--red);
-}
-
-.carrinhos {
-  position: relative;
-  height: 500px;
-  /* ajuste conforme necessário */
-  overflow: hidden;
-  // background-color: #f0f0f0;
-  /* cor de fundo para melhor visualização */
-}
-
-.carro {
-  position: absolute;
-  bottom: -100px;
-  /* fora da tela */
-  width: 50px;
-  /* ajuste conforme necessário */
-  height: 100px;
-  /* ajuste conforme necessário */
-  background-color: blue;
-  /* cor do carro */
-}
-
-@keyframes moveUp {
-  0% {
-    bottom: -100px;
-  }
-
-  /* fora da tela no início */
-  100% {
-    bottom: 500px;
-  }
-
-  /* altura da seção .carrinhos */
-}
-
-
-.moving {
-  animation: moveUp 5s linear infinite;
-}
-
-.slowing {
-  animation: none;
-  /* parar a animação */
-  bottom: calc(100% - 120px);
-  /* ajusta para parar na faixa */
 }
