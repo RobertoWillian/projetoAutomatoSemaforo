@@ -78,7 +78,7 @@ $ npm start
 - [Ana Carolina Barbosa de Souza](https://github.com/anacarolbs)
 - [Carla Mariana Alencar Braga](https://github.com/TekhneDev)
 - [Hillary Alexandra Cavalcante Siolin](https://github.com/HSiolin) 
-- Leonardo Ferreira Rodrigues
+- [Leonardo Ferreira Rodrigues](https://github.com/leonard0fr)
 - [Marcus Vinicius Portela da Costa](https://github.com/marcusportela)
 - [Robert Willian Costa Silva](https://github.com/RobertoWillian)
 - [Taui Silva Lima](https://github.com/tauisilva)
