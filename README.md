@@ -4,7 +4,8 @@
 
 Este projeto consiste na implementação de um semáforo utilizando um autômato finito determinístico (AFD). O objetivo é simular o comportamento de um semáforo de trânsito, onde o sistema pode estar em um de três estados: "Verde", "Amarelo" e "Vermelho". As transições entre esses estados seguem regras definidas que são características de um AFD.
 
-![alt text](src\assets\image.png)
+![image](https://github.com/RobertoWillian/projetoAutomatoSemaforo/assets/42608628/b0182d48-bedc-4a96-9a39-78fca0a2ac99)
+
 
 
 ## Funcionamento
