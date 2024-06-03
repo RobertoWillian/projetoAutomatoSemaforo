@@ -54,7 +54,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ### ●[Angular](https://angular.dev) ● [NODE.JS](https://nodejs.org/pt-br) ● [NPM](https://www.npmjs.com/) ●  [PRIMENG](https://primeng.org/) ●  [PRIMEFLEX](https://primeflex.org/)
 
-## 🎲 Rodando a aplicação
+## Rodando a aplicação
 
 ```bash
 # Clone este repositório
@@ -70,5 +70,15 @@ $ npm install
 $ npm start
 
 # O servidor iniciará na porta:4200 - acesse <http://localhost:4200>
-# Obs:  Não se esqueça de iniciar a API
 ```
+## Documentação
+[Artigo do projeto](https://docs.google.com/document/d/14QCq4lHucOjA-hUkOBkVntE2LU0-TCoVVx0NzcdO2ww/edit)  
+
+### Integrantes 
+- [Ana Carolina Barbosa de Souza](https://github.com/anacarolbs)
+- [Carla Mariana Alencar Braga](https://github.com/TekhneDev)
+- [Hillary Alexandra Cavalcante Siolin](https://github.com/HSiolin) 
+- Leonardo Ferreira Rodrigues
+- [Marcus Vinicius Portela da Costa](https://github.com/marcusportela)
+- [Robert Willian Costa Silva](https://github.com/RobertoWillian)
+- [Taui Silva Lima](https://github.com/tauisilva)
